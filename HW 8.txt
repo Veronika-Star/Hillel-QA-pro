@@ -1,0 +1,41 @@
+Написати функцію, що прийме в якості 2 аргументів координати початку на кінця 2 відрізків на прямій ([a1, a2], [b1, b2]) і поверне:
+1.Координати початку та кінця перетинання відрізків, якщо відрізки перетинаються [c1, c2]
+2.Координату точки перетинання відрізків, якщо відрізки перетинаються в 1 точці
+3."No collision", якщо відрізки не перетинаються
+
+function areSegmentsIntersecting(segment1, segment2) {
+    
+let minSegment1 =  Math.min( segment1[0],  segment1[1]);   
+let maxSegment1 =  Math.max( segment1[0],  segment1[1]);
+
+let minSegment2 =  Math.min( segment2[0],  segment2[1]);
+let maxSegment2 =  Math.max( segment2[0],  segment2[1]);
+
+if (minSegment1 <= minSegment2){
+    minSegment = minSegment2;
+}else{
+    minSegment = minSegment1;
+}
+
+if (maxSegment1 >= maxSegment2){
+    maxSegment = maxSegment2
+}else{
+    maxSegment = maxSegment1
+}
+
+let diff =  minSegment -maxSegment ;
+let result;
+if (diff < 0 ){
+     result = [minSegment,maxSegment];
+} else if(diff == 0){
+    result = [minSegment]
+} else {
+    result = "No collision"
+}
+return result;
+}
+
+let segment1 = [2, 8];
+let segment2 = [-4, 9];
+
+console.log(areSegmentsIntersecting(segment1, segment2))

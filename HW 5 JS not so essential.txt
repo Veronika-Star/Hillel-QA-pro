@@ -1,0 +1,26 @@
+1.	Напишіть програму для обчислення факторіалу числа N
+let N = 10;
+let result = 1;
+for (let i = 2; i <= N; i ++) {
+    result *=i;
+    i++
+}
+console.log (result);
+1.	Напишіть програму, що виводить всі прості числа от 1 до N
+let N = 50; // Замініть на бажане значення N
+
+for (let num = 2; num <= N;num++ ) {
+  let numberPrime= true;
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      numberPrime = false;
+      break;
+    }
+  
+  }
+
+  if (numberPrime) {
+    console.log(num);
+  }
+}
